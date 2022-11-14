@@ -5,12 +5,17 @@
     </div>
     
     <div class="card-badges-container" :style="{background: `url(http://localhost:1337${others[1].image.url})`}">
-      <Banner class="banner-component"/>
-      <div class="carousel-container">
-        <h2 style="text-align: center">A Partner <span>You Can Trust</span></h2>
-        <hr class="carousel-title-hr">
-        <!-- <Carousel/> -->
+      <div class="banner-component-container">
+        <Banner/>
       </div>
+      <div class="carousel-container">
+        <div class="sub-heading">
+          <h2>A Partner <span>You Can Trust</span></h2>
+          <hr class="carousel-title-hr">
+        </div>
+        <Carousel class="carousel"/>
+      </div>
+      <Cta/>
     </div>
   </main>
 </template>
@@ -18,10 +23,12 @@
 <script>
 import Banner from '~/components/Banner.vue'
 import Carousel from '~/components/Carousel.vue'
+import Cta from '~/components/Cta.vue'
 export default{
   components: {
     Banner,
-    Carousel
+    Carousel,
+    Cta
   },
   data(){
     return {
@@ -35,12 +42,16 @@ export default{
 </script>
 
 <style scoped>
+.sub-heading{
+  text-align: center;
+  margin-bottom: 3rem;
+}
 .parallax{
     height: 825px;
     background-position: center !important;
     background-size: cover !important;
 }
-.banner-component{
+.banner-component-container{
   position: relative;
   top: -35rem;
 }
@@ -58,5 +69,8 @@ export default{
   margin: 0 auto;
   border: none;
   opacity: 1;
+}
+.carousel{
+  margin-bottom: 4rem;
 }
 </style>

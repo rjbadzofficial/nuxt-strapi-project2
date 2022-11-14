@@ -1,11 +1,11 @@
 <template>
     <footer>
-        <div class="container-fluid">
-            <div class="row">
+        <div class="container-fluid logo-info-container">
+            <div class="row logo-info-row">
                 <div class="col-md-5 logo-container">
                     <Logo :width="200" :src="logos[1].image.url" :alt="logos[1].title"/>
                 </div>
-                <div class="col-md-7">
+                <div class="infos-container col-md-7">
                     <div class="row">
                         <div class="col-md-6 info-container" v-for="info in infos" :key="info.id">
                             <div class="subheading">{{info.title}}</div>
@@ -50,6 +50,9 @@ export default{
 </script>
 
 <style scoped>
+.logo-info-container{
+    padding: 1rem;
+}
 .copyright{
     background-color: #0076a3;
     color: #ffffff;
@@ -68,10 +71,21 @@ export default{
         width: 100%;
     }
 }
+@media (min-width: 768px) {
+    .logo-info-row{
+        padding-top: 4rem;
+    }
+}
 @media (max-width: 767px) {
+    footer{
+        margin-top: 4rem;
+    }
     .logo-container{
         display: flex;
         justify-content: center;
+    }
+    .infos-container{
+        margin-top: 4rem;
     }
     .info-container{
         display: flex;
