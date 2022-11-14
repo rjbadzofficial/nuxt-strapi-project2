@@ -2,12 +2,12 @@
     <footer>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-5">
+                <div class="col-md-5 logo-container">
                     <Logo :width="200" :src="logos[1].image.url" :alt="logos[1].title"/>
                 </div>
                 <div class="col-md-7">
                     <div class="row">
-                        <div class="col-md-6" v-for="info in infos" :key="info.id">
+                        <div class="col-md-6 info-container" v-for="info in infos" :key="info.id">
                             <div class="subheading">{{info.title}}</div>
                             <p class="content">{{info.content}}</p>
                         </div>
@@ -64,7 +64,23 @@ export default{
 
 @media (min-width: 992px) {
     .container-fluid{
-        width: 1110px;
+        max-width: 1110px;
+        width: 100%;
+    }
+}
+@media (max-width: 767px) {
+    .logo-container{
+        display: flex;
+        justify-content: center;
+    }
+    .info-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .copyright{
+        text-align: center;
     }
 }
 </style>

@@ -64,7 +64,14 @@ export default {
         flex-grow: 0;
     }
     .navbar-nav a, .navbar-nav a:hover, .navbar-nav a:focus{
-    color: #0076a3;
-}
+        color: #0076a3;
+    }
+    .nav-link{
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+    .dropdown-menu{
+        padding: 0;
+    }
 }
 </style>
