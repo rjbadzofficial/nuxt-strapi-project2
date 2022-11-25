@@ -35,6 +35,9 @@
     },
     "description2": {
       "type": "text"
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }

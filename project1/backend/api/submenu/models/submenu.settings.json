@@ -18,6 +18,9 @@
     "menus": {
       "via": "submenus",
       "collection": "menu"
+    },
+    "path": {
+      "type": "string"
     }
   }
 }

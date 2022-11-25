@@ -27,7 +27,7 @@
       "required": false,
       "pluginOptions": {}
     },
-    "path": {
+    "slug": {
       "type": "string"
     }
   }

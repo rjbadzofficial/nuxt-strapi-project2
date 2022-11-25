@@ -1,11 +1,11 @@
 <template>
-    <div class="cards-container">
+    <div>
         <div class="image-container">
-            <span :class="card.fontawesome"></span>
+            <span :class="fontawesome"></span>
         </div>
         <div class="decription-container">
             <p class="description">
-                {{card.description}}
+                {{description}}
             </p>
         </div>
     </div>
@@ -14,7 +14,7 @@
 
 <script>
 export default{
-    props: ['card']
+    props: ['fontawesome', 'description']
 }
 </script>
 
@@ -24,6 +24,7 @@ export default{
     box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.25);
     -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.25);
     -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.25);
+    border-bottom: 0.5rem solid #00b6e6;
 }
 .image-container{
     background-color: #00b6e6;
@@ -38,7 +39,8 @@ export default{
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    min-height: 100px;
+    min-height: 120px;
+    font-weight: 600;
 }
 .description{
     margin: 0;
@@ -47,6 +49,6 @@ export default{
 
 <style>
     .slick-slide{
-        padding: 0.5rem 0.5rem;
+        padding: 0.5rem 1.5rem;
     }
 </style>

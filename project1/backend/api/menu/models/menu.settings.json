@@ -16,9 +16,12 @@
       "type": "string"
     },
     "submenus": {
-      "collection": "submenu",
       "via": "menus",
+      "collection": "submenu",
       "dominant": true
+    },
+    "path": {
+      "type": "string"
     }
   }
 }

@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "others",
+  "collectionName": "healthcares",
   "info": {
-    "name": "other",
+    "name": "healthcare",
     "description": ""
   },
   "options": {
@@ -12,8 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "title": {
       "type": "string"
+    },
+    "description": {
+      "type": "text"
     },
     "image": {
       "model": "file",
@@ -27,7 +30,7 @@
       "required": false,
       "pluginOptions": {}
     },
-    "slug": {
+    "path": {
       "type": "string"
     }
   }

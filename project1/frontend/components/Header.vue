@@ -2,19 +2,21 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-light fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><Logo :width="280" :src="logos[0].image.url" :alt="logos[0].title"/></a>
+                <nuxt-link class="navbar-brand" :to="{ path: '/'}">
+                    <Logo :width="280" :src="logo[0].image.url" :alt="logo[0].title"/>
+                </nuxt-link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown" v-for="menu in menus" :key="menu.id">
-                            <a v-if="menu.submenus.length == 0" class="nav-link" href="#">{{menu.name}}</a>
+                            <nuxt-link v-if="menu.submenus.length == 0" class="nav-link" :to="menu.path">{{menu.name}}</nuxt-link>
                             <a v-else class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{menu.name}}
                             </a>
                         <ul class="dropdown-menu" v-if="menu.submenus">
-                            <li v-for="submenu in menu.submenus" :key="submenu.id"><a class="dropdown-item" href="#">{{submenu.name}}</a></li>
+                            <li v-for="submenu in menu.submenus" :key="submenu.id"><nuxt-link class="dropdown-item" :to="menu.path+submenu.path">{{submenu.name}}</nuxt-link></li>
                         </ul>
                         </li>
                     </ul>
@@ -32,13 +34,13 @@ export default {
     },
     data(){
         return {
-            logos: [],
+            logo: [],
             menus: []
         }
     },
     async fetch(){
         this.menus = await this.$strapi.find('menus')
-        this.logos = await this.$strapi.find('logos')
+        this.logo = await this.$strapi.find('logos', { slug: 'header' })
     }
 }
 </script>

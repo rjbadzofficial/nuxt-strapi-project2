@@ -8,19 +8,19 @@
 
 <script>
 import VueSlickCarousel from 'vue-slick-carousel'
-import Card from '~/components/Card.vue'
+import Card from '~/components/cards/Card.vue'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 export default {
+  props: ['cards'],
   components: { 
     VueSlickCarousel,
     Card
    },
   data(){
     return {
-        cards: [],
         display: 3,
         settings: {
             "dots": true,
@@ -34,9 +34,6 @@ export default {
             "autoplaySpeed": 3000,
         }
     }
-  },
-  async fetch(){
-      this.cards = await this.$strapi.find('cards')
   },
   mounted() {
     window.addEventListener("load", this.onResize);

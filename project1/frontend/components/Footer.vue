@@ -3,7 +3,7 @@
         <div class="container-fluid logo-info-container">
             <div class="row logo-info-row">
                 <div class="col-md-5 logo-container">
-                    <Logo :width="200" :src="logos[1].image.url" :alt="logos[1].title"/>
+                    <Logo :width="200" :src="logo[0].image.url" :alt="logo[0].title"/>
                 </div>
                 <div class="infos-container col-md-7">
                     <div class="row">
@@ -38,12 +38,12 @@ export default{
     },
     data(){
         return {
-            logos: [],
+            logo: [],
             infos: []
         }
     },
     async fetch(){
-        this.logos = await this.$strapi.find('logos')
+        this.logo = await this.$strapi.find('logos', { slug: 'footer' })
         this.infos = await this.$strapi.find('infos')
     }
 }

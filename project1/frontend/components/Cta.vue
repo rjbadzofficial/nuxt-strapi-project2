@@ -1,20 +1,29 @@
 <template>
-    <div :style="{background: `linear-gradient(0deg, rgba(0,118,163,.75) 0%, rgba(0,118,163,.75) 100%), url(http://localhost:1337${ctas[0].image.url}) no-repeat`}">
-        <h2>{{ctas[0].description}}</h2>
-        <nuxt-link to="">Contact Us</nuxt-link>
+    <div :style="{background: `linear-gradient(0deg, rgba(0,118,163,.75) 0%, rgba(0,118,163,.75) 100%), url(${getMedia(imageUrl)}) no-repeat`}">
+        <h2>{{description}}</h2>
+        <nuxt-link to="/contactus">Contact Us</nuxt-link>
     </div>
 </template>
 
 <script>
+import { getMedia } from '~/utils/media'
 export default{
+    props: ['slug'],
     data(){
         return{
-            path: this.$route.path,
-            ctas: []
+            imageUrl: '',
+            description: ''
         }
     },
+    methods: {
+        getMedia
+    },
     async fetch(){
-        this.ctas = await this.$strapi.find('ctas', { path: this.path})
+        await this.$strapi.find('ctas', { slug: this.slug })
+        .then(cta => {
+            this.imageUrl = cta[0].image.url
+            this.description = cta[0].description
+        })
     }
 }
 </script>
@@ -25,6 +34,7 @@ h2{
     max-width: 60rem;
     margin: 0;
     text-align: center;
+    padding: 1rem;
 }
 div{
     padding: 12rem 0;

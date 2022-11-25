@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "group": {
-      "type": "string"
-    },
     "description": {
       "type": "string"
     },
@@ -32,6 +29,9 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }
